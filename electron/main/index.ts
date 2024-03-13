@@ -1,11 +1,12 @@
-import { app, BrowserWindow } from 'electron'
-import { release } from 'node:os'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { createWindow } from '../createWin/mainWin'
+import { app, BrowserWindow } from "electron";
+import { release } from "node:os";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { createWindow } from "../createWin/mainWin";
+import "../ipcMain/index";
 
-globalThis.__filename = fileURLToPath(import.meta.url)
-globalThis.__dirname = dirname(__filename)
+globalThis.__filename = fileURLToPath(import.meta.url);
+globalThis.__dirname = dirname(__filename);
 
 // // The built directory structure
 // //
@@ -17,21 +18,21 @@ globalThis.__dirname = dirname(__filename)
 // // ├─┬ dist
 // // │ └── index.html    > Electron-Renderer
 // //
-process.env.DIST_ELECTRON = join(__dirname, '..')
-process.env.DIST = join(process.env.DIST_ELECTRON, '../dist')
+process.env.DIST_ELECTRON = join(__dirname, "..");
+process.env.DIST = join(process.env.DIST_ELECTRON, "../dist");
 process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
-  ? join(process.env.DIST_ELECTRON, '../public')
-  : process.env.DIST
+  ? join(process.env.DIST_ELECTRON, "../public")
+  : process.env.DIST;
 
 // Disable GPU Acceleration for Windows 7
-if (release().startsWith('6.1')) app.disableHardwareAcceleration()
+if (release().startsWith("6.1")) app.disableHardwareAcceleration();
 
 // Set application name for Windows 10+ notifications
-if (process.platform === 'win32') app.setAppUserModelId(app.getName())
+if (process.platform === "win32") app.setAppUserModelId(app.getName());
 
 if (!app.requestSingleInstanceLock()) {
-  app.quit()
-  process.exit(0)
+  app.quit();
+  process.exit(0);
 }
 
 // Remove electron security warnings
@@ -39,13 +40,13 @@ if (!app.requestSingleInstanceLock()) {
 // Read more on https://www.electronjs.org/docs/latest/tutorial/security
 // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
-app.whenReady().then(createWindow)
+app.whenReady().then(createWindow);
 
-app.on('activate', () => {
-  const allWindows = BrowserWindow.getAllWindows()
+app.on("activate", () => {
+  const allWindows = BrowserWindow.getAllWindows();
   if (allWindows.length) {
-    allWindows[0].focus()
+    allWindows[0].focus();
   } else {
-    createWindow()
+    createWindow();
   }
-})
+});
