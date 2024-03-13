@@ -19,6 +19,7 @@ export default defineConfig(({ command }) => {
     plugins: [
       vue(),
       AutoImport({
+        imports: ['vue', 'vue-router'],
         resolvers: [TDesignResolver({
           library: 'vue-next'
         })],

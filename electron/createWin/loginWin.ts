@@ -1,11 +1,15 @@
-import { BrowserWindow } from "electron";
+import { BrowserWindow, app, ipcMain } from "electron";
 import { join } from "node:path";
 
 export const createLoginWindow = async () => {
   let loginWin = new BrowserWindow({
-    minWidth: 400,
-    minHeight: 500,
+    width: 400,
+    height: 500,
+    resizable: false,
+    maximizable: false,
     title: "登录",
+    autoHideMenuBar: true,
+    frame: false,
     icon: join(process.env.VITE_PUBLIC, "flower.png"),
     webPreferences: {
       preload: join(__dirname, "../preload/index.mjs"),
@@ -34,6 +38,14 @@ export const createLoginWindow = async () => {
 
   loginWin.addListener("close", () => {
     allWins.forEach((win) => win.destroy());
+  });
+
+  ipcMain.on("login_closed", () => {
+    app.quit();
+  });
+
+  ipcMain.on("login_minus", () => {
+    loginWin.minimize();
   });
   return loginWin;
 };
