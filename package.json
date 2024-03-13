@@ -2,7 +2,7 @@
   "name": "online",
   "version": "28.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "Really simple Electron + Vue + Vite boilerplate.",
+  "description": "online app",
   "author": "bk <jesseice1999@163.com>",
   "license": "MIT",
   "private": true,
@@ -21,7 +21,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && electron-builder",
+    "build": "vite build && electron-builder",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -34,5 +34,11 @@
     "vite-plugin-electron-renderer": "^0.14.5",
     "vue": "^3.4.21",
     "vue-tsc": "^2.0.6"
+  },
+  "dependencies": {
+    "tdesign-vue-next": "^1.9.0",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
+    "vue-router": "^4.3.0"
   }
 }
