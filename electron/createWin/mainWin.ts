@@ -1,12 +1,13 @@
-import { BrowserWindow, app, shell } from "electron";
+import { BrowserWindow, app, ipcMain, shell } from "electron";
 import { join } from "node:path";
 export const createWindow = () => {
   let win = new BrowserWindow({
     minWidth: 1280,
     minHeight: 720,
     title: "主界面",
-    icon: join(process.env.VITE_PUBLIC, "flower.png"),
     autoHideMenuBar: true,
+    frame: false,
+    icon: join(process.env.VITE_PUBLIC, "flower.png"),
     webPreferences: {
       preload: join(__dirname, "../preload/index.mjs"),
     },
@@ -14,7 +15,7 @@ export const createWindow = () => {
   const url = process.env.VITE_DEV_SERVER_URL;
   if (process.env.VITE_DEV_SERVER_URL) {
     win.loadURL(url);
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
   } else {
     const indexHtml = join(process.env.DIST, "index.html");
     win.loadFile(indexHtml);
@@ -29,6 +30,10 @@ export const createWindow = () => {
     win = null;
     if (process.platform !== "darwin") app.quit();
   });
+
+  ipcMain.on("min", () => win.minimize());
+  ipcMain.on("max", () => (win.isMaximized() ? win.restore() : win.maximize()));
+  ipcMain.on("close", () => win.close());
 
   return win;
 };

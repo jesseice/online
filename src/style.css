@@ -33,43 +33,6 @@ h1 {
   line-height: 1.1;
 }
 
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-/* code {
-  background-color: #1a1a1a;
-  padding: 2px 4px;
-  margin: 0 4px;
-  border-radius: 4px;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -84,4 +47,23 @@ button:focus-visible {
   code {
     background-color: #f9f9f9;
   }
+}
+
+::-webkit-scrollbar {
+  max-width: 6px;
+  max-height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #ddd;
+  -webkit-box-shadow: inset 0 0 6px rgba(112, 109, 109, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(204, 204, 204);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(216, 213, 213, 0.4);
 }

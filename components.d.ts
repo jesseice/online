@@ -10,11 +10,15 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TAside: typeof import('tdesign-vue-next')['Aside']
     TButton: typeof import('tdesign-vue-next')['Button']
+    TContent: typeof import('tdesign-vue-next')['Content']
+    TFooter: typeof import('tdesign-vue-next')['Footer']
     TForm: typeof import('tdesign-vue-next')['Form']
     TFormItem: typeof import('tdesign-vue-next')['FormItem']
-    TIcon: typeof import('tdesign-vue-next')['Icon']
+    THeader: typeof import('tdesign-vue-next')['Header']
     TInput: typeof import('tdesign-vue-next')['Input']
+    TLayout: typeof import('tdesign-vue-next')['Layout']
     TSpace: typeof import('tdesign-vue-next')['Space']
   }
 }
