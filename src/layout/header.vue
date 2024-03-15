@@ -1,7 +1,10 @@
 <template>
   <div class="header">
     <h3>{{ AppTitle }}</h3>
-    <t-space :size="0">
+    <t-space :size="0" align="center">
+      <t-button variant="text" theme="primary" size="small" @click="openLogin" style="-webkit-app-region: no-drag">
+        登录
+      </t-button>
       <a class="close_btn" @click="minus"> <MinusIcon /> </a>
       <a class="close_btn" style="font-size: 14px" @click="max">
         <RectangleIcon />
@@ -17,6 +20,8 @@ import { MinusIcon, CloseIcon, RectangleIcon } from "tdesign-icons-vue-next";
 const minus = () => window.ipcRenderer.send("min");
 const max = () => window.ipcRenderer.send("max");
 const close = () => window.ipcRenderer.send("close");
+
+const openLogin = () => window.ipcRenderer.invoke("open_login_win");
 </script>
 <style lang="less" scoped>
 .header {

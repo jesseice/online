@@ -17,8 +17,10 @@ declare module 'vue' {
     TForm: typeof import('tdesign-vue-next')['Form']
     TFormItem: typeof import('tdesign-vue-next')['FormItem']
     THeader: typeof import('tdesign-vue-next')['Header']
+    TIcon: typeof import('tdesign-vue-next')['Icon']
     TInput: typeof import('tdesign-vue-next')['Input']
     TLayout: typeof import('tdesign-vue-next')['Layout']
     TSpace: typeof import('tdesign-vue-next')['Space']
+    TTooltip: typeof import('tdesign-vue-next')['Tooltip']
   }
 }
