@@ -1,6 +1,7 @@
 import { ipcMain } from "electron";
 import { createLoginWindow } from "../createWin/loginWin";
 import xhsSign from "../utils/xs_old";
+import { fetch } from "umi-request";
 ipcMain.handle("open_login_win", () => {
   createLoginWindow();
 });
