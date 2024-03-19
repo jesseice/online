@@ -41,16 +41,16 @@ const modeOptions = [
 const src = ref("");
 const loading = ref(false);
 const formData = reactive(
-  {
-    msg: "花朵",
-    img: "https://seopic.699pic.com/photo/10028/5740.jpg_wh1200.jpg",
-    mode: "动漫",
-  }
   // {
-  //   msg: "可爱的萝莉",
-  //   img: "https://gchat.qpic.cn/gchatpic_new/0/0-0-705F3B27B378074BFAFD41471B252050/0",
-  //   mode: "写实",
+  //   msg: "花朵",
+  //   img: "https://seopic.699pic.com/photo/10028/5740.jpg_wh1200.jpg",
+  //   mode: "动漫",
   // }
+  {
+    msg: "可爱的萝莉",
+    img: "https://gchat.qpic.cn/gchatpic_new/0/0-0-705F3B27B378074BFAFD41471B252050/0",
+    mode: "写实",
+  }
 );
 const handleSubmit = async () => {
   const { msg, img, mode } = formData;

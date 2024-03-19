@@ -1,6 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 import Layout from "@/layout/index.vue";
-import { ImageIcon, FillColor1Icon } from "tdesign-icons-vue-next";
+import { ImageIcon, FillColor1Icon, Filter3Icon } from "tdesign-icons-vue-next";
 export const menuRoutes: RouteRecordRaw[] = [
   // {
   //   path: "/imageSearch",
@@ -13,6 +13,18 @@ export const menuRoutes: RouteRecordRaw[] = [
     name: "createImg",
     meta: { title: "文生图", icon: ImageIcon },
     component: () => import("@/pages/createImg/index.vue"),
+  },
+  {
+    path: "/cosplay",
+    name: "cosplay",
+    meta: { title: "随机cosplay", icon: Filter3Icon },
+    component: () => import("@/pages/cosplay/index.vue"),
+  },
+  {
+    path: "/girlWrap",
+    name: "girlWrap",
+    meta: { title: "被girl包围了", icon: Filter3Icon },
+    component: () => import("@/pages/girlWrap/index.vue"),
   },
   {
     path: "/home1",
@@ -33,6 +45,11 @@ const routes: RouteRecordRaw[] = [
     path: "/login",
     name: "login",
     component: () => import("@/pages/login/index.vue"),
+  },
+  {
+    path: "/update",
+    name: "update",
+    component: () => import("@/pages/update/index.vue"),
   },
 ];
 
